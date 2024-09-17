@@ -1,3 +1,6 @@
+
+
+import os
 user_name = "brodie"
 
 print(user_name)
@@ -70,3 +73,18 @@ if have_cheese:
 
 if not have_cheese:
     print('sad no cheese')
+
+
+# Importing
+
+
+print(os.getcwd())
+
+
+# dunder variables and dunder methods
+
+print(__name__)
+print(__file__)
+
+if __name__ == 'main':
+    print('this file is named main.py')
