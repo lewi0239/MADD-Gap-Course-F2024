@@ -89,6 +89,64 @@ print(__file__)
 if __name__ == 'main':
     print('this file is named main.py')
 
+<< << << < HEAD
 test = True
 
 print(test)
+== == == =
+
+# Module one and two debrief:
+
+# Data Types:
+
+# Numeric 3x
+
+# 1. Integer
+my_age = 31
+# 2. Float
+market_value_per_share = 15
+eps = 3.75
+price_earning_ratio = market_value_per_share / eps
+print(price_earning_ratio)
+# 3. Complex
+compound_c = 3+4j
+
+
+# Sequence 4x
+# 1. Strings
+my_name = 'brodie'
+
+# f strings (template literals in javascript)
+print(f"Hello my name is {my_name}")
+
+# 2. Lists
+todo_list = ['workout', 'study', 'read']
+
+# 3. Tuples
+movie_start_times = (1300, 1630, 1900, 2200)
+
+# 4. Range
+daily_tempature = range(-3, 23)
+
+# Maps 1x (in this example shows a list of dictionaries, same as an array of objects in JavaScript)
+my_friends = [{"name": "Tom", "age": 31},
+              {"name": "Alice", "age": 25}]
+# sets 2x
+# 1. Set
+locations = {"Ottawa", "Montreal", "Toronto"}
+# 2. Frozenset
+locations_continent = frozenset({"North America"})
+# Binary 3x
+
+# 1. Bytes immutable
+message = b"hello"
+# 2. Bytearray mutable
+todays_date = bytearray(b"Monday")
+
+# 3. Memoryview
+memoryview(b"Hello")
+# None 1x
+# 1. NoneType (absence of a value)
+no_value = None
+# total types = 15
+>>>>>> > 6dbfc36(added datatypes to intro)
