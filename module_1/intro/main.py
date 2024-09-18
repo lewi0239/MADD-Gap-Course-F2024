@@ -88,3 +88,7 @@ print(__file__)
 
 if __name__ == 'main':
     print('this file is named main.py')
+
+test = True
+
+print(test)

@@ -16,19 +16,36 @@ import pandas as pd
 # print(data.shape)
 # print(data['Volume'])
 
-my_portfolio = [
-    yf.Ticker("AAPL"),  # Apple
-    yf.Ticker("MSFT"),  # Microsoft
-    yf.Ticker("GLMD"),  # Galmed Pharmaceuticals
-    yf.Ticker("ACN")    # Accenture
-]
+
+class Stonks_Portfolio:
+    def __init__(self, stocks):
+        # Initialize Ticker objects
+        self.stocks = [yf.Ticker(stock) for stock in stocks]
+        self.portfolio_value = 0  # Placeholder for portfolio value
+        self.portfolio_risk = None  # Placeholder for future portfolio risk calculation
+
+    def calculate_portfolio_value(self):
+        """
+        Calculate the total market value of the portfolio.
+        """
+        total_value = 0
+        for stock in self.stocks:
+            try:
+                # Get the market price for each stock
+                stock_price = stock.info.get['regularMarketPrice']
+                print(f"{stock.ticker}: ${stock_price}")
+                total_value += stock_price
+            except Exception as e:
+                print(f"Error getting price data for {stock.ticker}: {e}")
+        self.portfolio_value = total_value
+        return total_value
 
 
-for stock in my_portfolio:
-    try:
-        # Some tickers might not have 'dividendRate', so we use .get() to avoid KeyErrors
-        dividend_rate = stock.info.get(
-            'dividendRate', 'No dividend data available')
-        print(f"{stock.ticker}: {dividend_rate}")
-    except Exception as e:
-        print(f"Error retrieving data for {stock.ticker}: {e}")
+def display_portfolio(self):
+    """
+        Display the current portfolio value and details.
+        """
+    print(f"Total Portfolio Value: ${self.portfolio_value}")
+    print("Individual Stocks in Portfolio:")
+    for stock in self.stocks:
+        print(f"- {stock.ticker}")
