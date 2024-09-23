@@ -149,4 +149,10 @@ memoryview(b"Hello")
 # 1. NoneType (absence of a value)
 no_value = None
 # total types = 15
->>>>>> > 6dbfc36(added datatypes to intro)
+
+# functions
+
+
+def greet(name):
+    print(f"Hello, {name}")
+    return name
