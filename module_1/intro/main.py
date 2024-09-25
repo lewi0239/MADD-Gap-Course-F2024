@@ -156,3 +156,22 @@ no_value = None
 def greet(name):
     print(f"Hello, {name}")
     return name
+
+# Assign a function with variables:
+
+
+def llm(prompt="When did the dinosaurs die", system="01-preview"):
+    response = f"Processing prompt '{prompt}' with system ''{system}"
+    return response
+
+
+result = llm()
+print
+
+# lambda function
+
+
+def add_ten(x): return x + 10
+
+
+print(add_ten(5))
