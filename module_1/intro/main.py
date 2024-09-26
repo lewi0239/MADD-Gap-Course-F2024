@@ -81,25 +81,54 @@ if not have_cheese:
 print(os.getcwd())
 
 
-# dunder variables and dunder methods
+# dunder (double underscore methods) variables and dunder methods
+"""
 
-print(__name__)
-print(__file__)
+In Python, "dunder" methods (short for "double underscore") are special methods that start and end with double underscores (like __init__, __repr__, etc.). These methods are also called magic methods and are used to define how objects behave with built-in operations such as addition, printing, comparison, etc.
 
-if __name__ == 'main':
-    print('this file is named main.py')
+"""
 
-<< << << < HEAD
-test = True
+# 1. Init (constructor ofr initializing objects):
+# Constructor for initializing objects
 
-print(test)
-== == == =
+
+class Example:
+    def __init__(self, name: str):
+        self.name = name
+
+# 2. Rep Defines the "offcial" string representation of an object
+
+
+class Example:
+    def __repr__(self):
+        return f'Example(name={self.name})'
+
+# 3. str Defines the "informal" string representation of an object (used by print)
+
+
+class Example:
+    def __str__(self):
+        return self.name
+
+
+# 4. length Returns the length of the object used by len()
+class Example:
+    def __len__(self):
+        return len(self.name)
+
+# 5. Indexing Defines behavior for indeing (e.g obj[key])
+
+
+class Example:
+    def __getitem__(self, index):
+        return self.name[index]
 
 # Module one and two debrief:
 
 # Data Types:
 
 # Numeric 3x
+
 
 # 1. Integer
 my_age = 31
