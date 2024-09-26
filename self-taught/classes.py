@@ -1,6 +1,8 @@
 import csv
 import os
 
+# https://realpython.com/python3-object-oriented-programming/
+
 
 class Person:
     def __init__(self, name, age):
@@ -111,3 +113,121 @@ print(Miles.age)
 print(Miles.name)
 
 print(Miles.species)
+
+
+# Instantiate Classes
+
+class Dog:
+    pass
+
+
+Dog()  # Dog object at 0x1023213d30> (made up memory location)
+
+
+# Python obhject stores the Dog object in your computers memory.
+
+
+# Python inheritance from another class
+
+"""
+Inheritance is the process by which one class takes on the atrributes and methods of another. Newly formed classes are called child classes, and the classes tht you derive child classes from are called parent classes
+
+You inherit from a parent class by creating a new class and putting the name of the parent class into parentheses:
+
+"""
+
+# main class
+
+
+class Parent:
+    hair_color = "brown"
+    speaks = ["English"]
+
+# new class inheriting the main class
+
+
+class Child(Parent):
+    def __init__(self):
+        super().__init__()
+        self.speaks.append("French")
+
+
+print(Child.hair_color)  # brown
+
+"""
+Child classes can override or extend the attributes and methods of parent classes. In other words, child classes inherit all of the parent’s attributes and methods but can also specify attributes and methods that are unique to themselves.
+
+
+
+
+You may have inherited your hair color from your parents. It’s an attribute that you were born with. But maybe you decide to color your hair purple. Assuming that your parents don’t have purple hair, you’ve just overridden the hair color attribute that you inherited from your parents:`
+"""
+
+
+Child.hair_color = "purple"
+
+"""
+By instantiating the Child class with child_instance = Child(), you trigger the __init__() method, which appends "French" to the speaks list.
+
+"""
+
+# make Car class:
+
+
+class Car:
+    number_of_doors = 4
+    car_list = []
+
+    def __init__(self, price: int, year: int, make: str):
+        self.price = price
+        self.year = year
+        self.make = make
+
+        Car.car_list.append(self)
+
+    def __str__(self):
+        return f'The {self.year} {self.make} is ${self.price}'
+
+    def country(self, location):
+        return f'{self.make} is made in {location}'
+
+
+# Create instances of Car
+BMW = Car(50000, 2023, "BMW")
+audi = Car(55000, 2022, "Audi")
+ford = Car(65000, 2017, "Ford")
+
+print(BMW.country("Germany"))
+
+
+for car in Car.car_list:
+    print(car)
+
+for car in Car.car_list:
+    print(car.make + " has " + str(car.number_of_doors) + " doors")
+
+
+class Truck(Car):
+    truck_bed_size_feet = 10
+
+
+yellow_truck = Truck(12500, 2011, "")
+
+
+"""
+The super() function does much more than just search the parent class for a method or an attribute. It traverses the entire class hierarchy for a matching method or attribute. If you aren’t careful, super() can have surprising results.
+"""
+"""
+Conclusion
+In this tutorial, you learned about object-oriented programming (OOP) in Python. Most modern programming languages, such as Java, C#, and C++, follow OOP principles, so the knowledge that you gained here will be applicable no matter where your programming career takes you.
+
+In this tutorial, you learned how to:
+
+Define a class, which is a sort of blueprint for an object
+Instantiate a class to create an object
+Use attributes and methods to define the properties and behaviors of an object
+Use inheritance to create child classes from a parent class
+Reference a method on a parent class using super()
+Check if an object inherits from another class using isinstance()
+
+"""
